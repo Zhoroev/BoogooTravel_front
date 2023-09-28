@@ -1,0 +1,46 @@
+{
+    "header": {
+        "main":"Home",
+        "tours": "Tours",
+        "gallery":"Gallery",
+        "faq":"FAQ",
+        "about": "About us"
+    },
+    "main": {
+        "searchBtn": "Search",
+        "searchCategoty_true": "one-day",
+        "searchCategoty_false": "multi-day",
+        "tours_title": "Our Tours",
+        "adv_title": "Choose us",
+        "adv1": "tourism for yourself",
+        "adv2": "Available price offers",
+        "adv3": "Rest without stress",
+        "adv4": "We keep trust of our customers",
+        "for_details1": "Want to know the details, ",
+        "for_details2": "contact phone:",
+        "see_tours": "All tours",
+        "see_gallery": "Gallery",
+        "read_more": "read more",
+        "days": "days:"
+    },
+    "tour": {
+        "duration": "Duration",
+        "category": "Category",
+        "price": "Price",
+        "starts": "Starts",
+        "ends": "Ends",
+        "programs": {
+            "day": "Day",
+            "place": "Accommodation",
+            "altitude": "Altitude",
+            "food": "Food",
+            "no_food": "not included"
+        }
+        
+    }
+
+
+   
+
+    
+}

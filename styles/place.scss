@@ -1,0 +1,208 @@
+.place{
+    &__gall{
+        // background-color: #f00;
+    }
+}
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 4px;
+    
+  }
+  
+  /* Create four equal columns that sits next to each other */
+  .column {
+    // flex: 25%;
+    // max-width: 25%;
+    display: grid;
+    gap: 4px;
+    grid-template-columns: repeat(4, 1fr);
+    padding: 0 4px;
+  }
+  
+  .column img {
+    margin-top: 8px;
+    vertical-align: middle;
+    width: 100%;
+  }
+  
+  /* Responsive layout - makes a two column-layout instead of four columns */
+  @media screen and (max-width: 800px) {
+    .column {
+      flex: 50%;
+      max-width: 50%;
+    }
+  }
+  
+  /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+  @media screen and (max-width: 600px) {
+    .column {
+      flex: 100%;
+      max-width: 100%;
+    }
+  }
+
+.aist_back{
+    // background: url('../public/asit.jpg');
+    z-index: -1;
+    width: 100%;
+    height: 600px;
+    object-fit: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    position: relative;
+}
+.aist_title{
+    text-align: center;
+    width: 100%;
+    margin: 20px auto;
+    z-index: 5;
+    position: absolute;
+    color: #fff;
+    text-shadow: 0 2px 2px rgb(0 0 0 /20%);
+    font-size: 35px;
+    font-weight: bold;
+}
+.aist_page_back{
+    background: rgb(162, 209, 208);
+}
+.aist_main_container{
+    width: 90%;
+margin: 0 auto;
+transform: translate(0, -100px);
+z-index: 10;
+
+}
+
+.aist_container{
+    width: 95%;
+    margin: 0 auto;
+}
+.aist_grid_buttons{
+    background: transparent;
+    z-index: 10;
+    column-gap: 8px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+}
+.aist_grid_buttons button{
+    box-shadow: none;
+    border-radius: 3px 3px 0px 0px;
+    font-size: 15px;
+    border: none;
+    color: #fff;
+    font-weight: 700;
+    letter-spacing: normal;
+    background: #2cb1b6;
+    width: 146px;
+    height: 50px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    &.active{
+        background-color: #9cb9d1;
+        color: snow;
+    }
+}
+.asit_grid_buttons_borderLine{
+    width: 100%;
+    height: 5px;
+    background: #2cb1b6;
+    /* border-top-left-radius: 10px;
+    border-top-right-radius: 10px; */
+    margin-bottom: 50px;
+}
+.aistMap{
+    margin: 50px 0;
+    // background: url('../public/aist-map.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    object-fit: cover;
+}
+.parent {
+    display: grid;
+    grid-template-columns: repeat(3, 2fr) 0.3fr repeat(2, 1fr);
+    grid-template-rows: repeat(20, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    }
+    
+    .div1 { grid-area: 1 / 1 / 21 / 4;
+        background-color: white;
+        box-shadow: 0 0 10px gray;
+        border-radius: 10px;
+        padding: 0 20px 20px 20px;
+    }
+    .div2 { grid-area: 1 / 5 / 21 / 7;
+        background-color: white;
+    box-shadow: 0 0 10px gray;
+        border-radius: 10px;
+        padding: 20px 20px 20px 20px;
+
+    }
+.aist_lorem1200{
+    text-align: left;
+    font-size: 18px;
+    transition:  300ms;
+}
+.aist_lorem_none{
+    display: none;
+    transition: 300ms;
+}
+.aist_gallery_view{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    // height: 250px;
+}
+.aist_gallery_none{
+    display:none;
+}
+    .aist_mark_li li{
+        color: #333333;
+        font-size: 16px;
+        font-weight: bold;
+        line-height: 22px;
+        text-align: left;
+        letter-spacing: normal;
+        background: white;
+       
+    }
+    .aist_collapse{
+        margin: 20px auto;
+    }
+    .aist_div2_title{
+        margin: 10px 0;
+        font-family: inherit;
+    }
+    .aist_div2_title_borderLine{
+        width: 100%;
+        height: 2px;
+        background: blueviolet;
+    }
+    .aist_div2_links{
+        font-family: inherit;
+        margin: 20px 0;
+        display: flex;
+        flex-direction: column;
+        row-gap: 25px;
+    }
+
+
+    @media (max-width:600px){
+        .place{
+            .parent{
+                display: flex;
+                gap: 5px;
+                flex-direction: column;
+            }
+        }
+        
+    }

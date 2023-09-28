@@ -1,0 +1,43 @@
+{
+    "header": {
+        "main": "Hauptseite",
+        "tours": "Touren",
+        "gallery":"Galerie",
+        "faq":"FAQ",
+        "about": "über uns"
+    },
+    "main": {
+        "searchBtn": "Finden",
+        "searchCategoty_true": "ein Tag",
+        "searchCategoty_false": "mehrtages",
+        "tours_title": "Unsere Touren",
+        "adv_title": "Wählen Sie uns",
+        "adv1": "Wählen Sie uns",
+        "adv2": "Wählen Sie uns",
+        "adv3": "Wählen Sie uns",
+        "adv4": "Wählen Sie uns",
+        "for_details1": "Willst du die Details wissen,",
+        "for_details2": "Kontakt Tel.:",
+        "see_tours": "Alle Touren",
+        "see_gallery": "Galerie",
+        "read_more": "weiterlesen",
+        "days": "tage"
+    },
+    "tour": {
+        "duration": "Dauer",
+        "category": "Kategorie",
+        "price": "Preis",
+        "starts": "Anfang",
+        "ends": "Ende",
+        "programs": {
+            "day": "Tag",
+            "place": "Gehäuse",
+            "altitude": "Höhe",
+            "food": "Essen",
+            "no_food": "nicht enthalten"
+        }
+    }
+    
+    
+
+}
