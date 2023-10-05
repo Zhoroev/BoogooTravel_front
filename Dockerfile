@@ -32,4 +32,5 @@ COPY --from=build /base/public ./public
 COPY --from=build /base/node_modules ./node_modules
 COPY --from=build /base/next.config.js ./
 EXPOSE 3000
-CMD ["node", "node_modules/.bin/next", "start"]
+CMD ["node_modules/.bin/next", "start"]
+
