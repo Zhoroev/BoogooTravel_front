@@ -9,9 +9,6 @@ import { useRouter } from 'next/router';
 
 export default function Header(props){
     const t = useTranslations('header')
-    
-
-
     const router = useRouter()
     const locale = router.locale
     const navLink = router.route
@@ -20,11 +17,11 @@ export default function Header(props){
 
 
 //    console.log(router)
-    
 
-        
 
-    
+
+
+
     return(
         <>
     <header>
@@ -63,7 +60,7 @@ export default function Header(props){
                         src={'/bugu_travel_logo1.jpg'}
                         alt="logo" width={290} height={260} priority/>
             </Link>
-               
+
             </div>
             <ul className="ulnav">
                 <Link  className={`nav ${navLink =='/' && 'active'}`}  href={{
@@ -83,36 +80,10 @@ export default function Header(props){
                 }}>{t('about')}</Link>
                 {/* <li><a className="nav" href="#">Контакты</a></li> */}
             </ul>
-        
+
         </nav>
-       
+
     </header>
-    
-        <div className='navigation__lang'>
-          
-            <Image className='navigation__lang-globus' height={130} width={130} alt='globe' src="/globe.svg"/>
-            <div className={`lang-menu  ${lang && 'open'}`}>
-
-                <div className={`selected-lang not${locale}`} onClick={() => setLang(!lang)}>
-                    <span className='lang-menu-text'>{locale == 'en' ? 'Eng' : locale == 'de' ? 'De' : 'Рус'}</span>
-                </div>
-                <ul>
-                    <li>
-                        <Link href={router.asPath} locale={'ru'}  className="noflagru">Русский</Link>
-                    </li>
-                    <li>
-                        <Link href={router.asPath} locale={'en'}  className="noflagen">English</Link>
-                    </li>
-                    <li>
-                        <Link href={router.asPath} locale={'de'}  className="noflagde">Deutch</Link>
-                    </li>
-
-                </ul>
-                
-            </div>
-            
-        </div>
-         
         </>
     )
 }

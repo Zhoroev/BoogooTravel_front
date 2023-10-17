@@ -18,18 +18,17 @@ import {AiFillInstagram, AiFillFacebook, AiOutlineTwitter, AiFillSkype,AiOutline
 export default function Footer(){
     const router = useRouter(),
      locale = router.locale;
-
      const [media, setMedia] = useState([])
      const [contacts, setContacts] = useState([])
       useEffect(()=>{
         const fetchdata = async () => {
-            const req = await fetch( `http://127.0.0.1:8000/${locale}/api/v1/social_networks/`)
+            const req = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/${locale}/api/v1/social_networks/`)
             const res = await req.json()
             setMedia(res.data)
         }
         fetchdata()
         const fetchContacts = async () => {
-            const req = await fetch( `http://127.0.0.1:8000/${locale}/api/v1/contacts`)
+            const req = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/${locale}/api/v1/contacts`)
             const res = await req.json()
             res.data.length ?
             setContacts(res.data[0])

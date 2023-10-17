@@ -17,7 +17,6 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import Head from 'next/head';
 
-
 // export const getServerSideProps = async () => {
 //     const req = await fetch('https://jsonplaceholder.typicode.com/users')
 //     const res = await req.json()
@@ -51,19 +50,19 @@ const  Main = () => {
         const [categories, setCategories] = useState([])
     useEffect(()=>{
         const fetchdata = async () => {
-            const req = await fetch(`http://127.0.0.1:8000/${locale }/api/v1/tours/?is_draft=false&is_top=true`)
+            const req = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/${locale }/api/v1/tours/?is_draft=false&is_top=true`)
             const res = await req.json()
             setTours(res.data)
         }
         fetchdata()
         const fetchCategories = async () => {
-            const req = await fetch(`http://127.0.0.1:8000/${locale || 'ru'}/api/v1/categories/`)
+            const req = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/${locale || 'ru'}/api/v1/categories/`)
             const res = await req.json()
             setCategories(res?.data)
         }
         fetchCategories()
-        const fetchPlaces = async () => { 
-            const req = await fetch(`http://127.0.0.1:8000/${locale || 'ru'}/api/v1/places/?limit=3`)
+        const fetchPlaces = async () => {
+            const req = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/${locale || 'ru'}/api/v1/places/?limit=3`)
             const res = await req.json()
             setPlaces(res.data.results)
         }
@@ -88,7 +87,7 @@ const  Main = () => {
                         <Select
                         size='large'
                         dropdownMatchSelectWidth={true}
-                            defaultValue={categories.length ? categories[0].name : 'Категория'}
+                            defaultValue={categories.length ? categories[0].name : 'category'}
                             onChange={e => setSearchCategory(e)}
                             options={categories?.map(c => (
                                 {

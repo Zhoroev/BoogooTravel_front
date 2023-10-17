@@ -11,11 +11,11 @@ import Head from 'next/head'
 
 export async function getServerSideProps(context){
   const {locale, query} = context;
-  const req = await fetch(`http://127.0.0.1:8000/${locale}/api/v1/places/${query.id}/`)
+  const req = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/${locale}/api/v1/places/${query.id}/`)
   const res = await req.json()
   //  setPageInfo(res.data)
 
-  
+
 
   return {
       props: {
@@ -39,10 +39,10 @@ const Place = ({pageInfo}) => {
     setGal('aist_gallery_none')
     setLorem('aist_lorem1200')
   }
-  
-   
-     
-  
+
+
+
+
       return (
         <>
          <Head>
@@ -99,11 +99,11 @@ const Place = ({pageInfo}) => {
                   </div> */}
                 </div>
 
-                
+
                 </div>
 
               <div  style={{position: 'relative' , width: '100%', height: '400px', margin: '22px 0', }}>
-                
+
                   <div style={{display: 'none'}}>
                    <NewImg.PreviewGroup preview={{visible,onVisibleChange: (vis) => setVisible(vis),}} >
                     {
@@ -116,10 +116,10 @@ const Place = ({pageInfo}) => {
                 <Image alt={pageInfo?.name || 'Картинка места туризма'} loader={() => pageInfo?.image} src={pageInfo?.image || nomad}
                     onClick={() => setVisible(true)} fill unoptimized='true' style={{objectFit: 'cover'}}/>
               </div>
-                
 
 
-                
+
+
               </div>
                     <div className="div2">
                       <h2 className='aist_div2_title'>TAGS</h2>
@@ -131,7 +131,7 @@ const Place = ({pageInfo}) => {
                                   <Link href={{pathname:'/allTours', query: {tag:str, search:''}}} key={idx}> #{str} </Link>
                                 </li>
                               ))
-                          }                   
+                          }
                       </div>
                     </div>
               </div>

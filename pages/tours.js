@@ -22,10 +22,10 @@ import { useForm } from 'react-hook-form';
 
   export async function getServerSideProps(context){
     const {locale, query} = context;
-    const req = await fetch(`http://127.0.0.1:8000/${locale}/api/v1/tours/${query.id}/`)
+    const req = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/${locale}/api/v1/tours/${query.id}/`)
     const res = await req.json()
 
-    
+
 
     return {
         props: {
@@ -58,30 +58,30 @@ const  TourPage = (props) =>{
      const t = useTranslations('tour')
      const [tours, setTours] = useState()
      const [tourForm, setTourForm] = useState({
-       sender: '' , 
+       sender: '' ,
        email: '',
        phone_number: '',
        text: '',
      })
 
-   
+
      useEffect(() => {
         const fetchdata = async () => {
-            const req = await fetch(`http://127.0.0.1:8000/${router.locale}/api/v1/tours/?is_draft=false&limit=6&tags__name=${pageInfo?.tags[0] || ''}`)
+            const req = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/${router.locale}/api/v1/tours/?is_draft=false&limit=6&tags__name=${pageInfo?.tags[0] || ''}`)
             const res = await req.json()
             setTours(res.data.results)
         }
         fetchdata();
      },[pageInfo, router.locale])
 
-    
+
      const submitHandler = async () =>{
           await axios.post('http://127.0.0.1:8000/ru/api/v1/messages/', tourForm)
         .then(res =>{
              console.log(res)
              notify('Ваша бронь отправлена👌');
              setTourForm({
-                sender: '' , 
+                sender: '' ,
                 email: '',
                 phone_number: '',
                 text: '',
@@ -106,15 +106,15 @@ const  TourPage = (props) =>{
         watch,
         formState: {errors}
      } = useForm()
-    
+
       const handleOk = () => {
         setIsModalOpen(false);
       };
-    
+
       const handleCancel = () => {
         setIsModalOpen(false);
       };
-    
+
      const bgImage = pageInfo?.image
 
 
@@ -128,7 +128,7 @@ const  TourPage = (props) =>{
             position="bottom-left"
             closeOnClick={true}
         />
-        
+
         <div className='tourPage'>
             <Modal centered title={pageInfo?.name} open={isModalOpen} onOk={handleOk} onCancel={handleCancel} footer={[]}>
                 <form className='tours__form' onSubmit={(e) => e.preventDefault()}>

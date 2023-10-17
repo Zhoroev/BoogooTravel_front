@@ -12,10 +12,9 @@ import Head from 'next/head'
 
 
 export const getServerSideProps = async ({locale}) => {
-    
-    const req = await fetch(`http://127.0.0.1:8000/${locale }/api/v1/about_us/`)
+    const req = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/${locale }/api/v1/about_us/`)
     const res = await req.json()
-    const reqEmploy = await fetch(`http://127.0.0.1:8000/${locale}/api/v1/employees/`)
+    const reqEmploy = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/${locale}/api/v1/employees/`)
     const resEmploy = await reqEmploy.json()
 
     if (!res) {
@@ -35,7 +34,7 @@ const AboutUs = ({about, employees}) => {
     const [contacts, setContacts] = useState([])
     useEffect(()=>{
         const fetchContacts = async () => {
-            const req = await fetch( `http://127.0.0.1:8000/${locale}/api/v1/contacts`)
+            const req = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/${locale}/api/v1/contacts`)
             const res = await req.json()
             res.data.length ?
             setContacts(res.data[0])

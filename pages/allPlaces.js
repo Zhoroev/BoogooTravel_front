@@ -10,7 +10,7 @@ import Head from 'next/head'
 
 export const getServerSideProps = async (context) => {
     const {locale, query} = context;
-    const req = await fetch(`http://127.0.0.1:8000/${locale }/api/v1/places/?tags__name=${query.tag || ''}`)
+    const req = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/${locale }/api/v1/places/?tags__name=${query.tag || ''}`)
     const res = await req.json()
     // setTours(res.data)
 

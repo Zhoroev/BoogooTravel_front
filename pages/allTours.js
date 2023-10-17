@@ -46,14 +46,14 @@ const  AllTours = (props) => {
     useEffect(()=>{
         const fetchdata = async () => {
             // console.log(offset)
-            const req = await fetch(`http://127.0.0.1:8000/${router.locale }/api/v1/tours/?is_draft=false&offset=${offset || ''}&limit=${toursLimit}&search=${search||''}&tags__name=${tag || ''}&is_one_day=${is_one_day || ''}&category__name=${category || ''}`)
+            const req = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/${router.locale }/api/v1/tours/?is_draft=false&offset=${offset || ''}&limit=${toursLimit}&search=${search||''}&tags__name=${tag || ''}&is_one_day=${is_one_day || ''}&category__name=${category || ''}`)
             const res = await req.json()
             res?.data && setTours(res.data)
         }
         fetchdata()
         
         const fetchCategories = async () => {
-            const req = await fetch(`http://127.0.0.1:8000/${router.locale }/api/v1/categories/`)
+            const req = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/${router.locale }/api/v1/categories/`)
             const res = await req.json()
             setCategories(res?.data)
         }
