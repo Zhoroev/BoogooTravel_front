@@ -76,10 +76,10 @@ const  TourPage = (props) =>{
 
 
      const submitHandler = async () =>{
-          await axios.post('http://127.0.0.1:8000/ru/api/v1/messages/', tourForm)
+          await axios.post(`${process.env.NEXT_PUBLIC_API_BASE_URL}/${router.locale}/api/v1/messages/`, tourForm)
         .then(res =>{
              console.log(res)
-             notify('Ваша бронь отправлена👌');
+             notify('Your message has been sent');
              setTourForm({
                 sender: '' ,
                 email: '',
@@ -90,7 +90,7 @@ const  TourPage = (props) =>{
         .catch(err =>{
              console.log(err)
              if (err.response.data.data.email){
-                notify('Ведите точный адрес почты');
+                notify('incorrect email');
              }
             })
      }
@@ -242,28 +242,28 @@ const  TourPage = (props) =>{
                     <form className='tours__form' onSubmit={handleSubmit(submitHandler)}>
                         <div className='tours__modal_inputs'>
                         <input type="text" {...register('sender', {required:true , pattern: /^([а-яё]+|[a-z]+)$/i})}
-                        value={tourForm.sender} onChange={(e) => setTourForm({...tourForm, sender:  e.target.value}) }  placeholder='Имя'/>
+                        value={tourForm.sender} onChange={(e) => setTourForm({...tourForm, sender:  e.target.value}) }  placeholder='full name'/>
                         {errors?.sender?.type === 'pattern' || errors?.sender?.type === 'required'&& (
-                            <p className='tours__form-error'>*  только символы алфавита</p>
+                            <p className='tours__form-error'>*  required field</p>
                         )}
 
                         <input type="email" {...register('email', {required:true })}
-                         value={tourForm.email} onChange={(e) => setTourForm({...tourForm, email: e.target.value}) } placeholder='эл. почта'/>
+                         value={tourForm.email} onChange={(e) => setTourForm({...tourForm, email: e.target.value}) } placeholder='email'/>
                           {errors?.email?.type === 'required'&& (
-                            <p className='tours__form-error'>*  Нужно заполнить</p>
+                            <p className='tours__form-error'>*  required field</p>
                           )}
                         <input type="text"  {...register('phone', {required:true, pattern: /^([0-9]+)$/i })}
-                         value={tourForm.phone_number} onChange={(e) => setTourForm( {...tourForm, phone_number: e.target.value}) }  placeholder='Номер телефона'/>
+                         value={tourForm.phone_number} onChange={(e) => setTourForm( {...tourForm, phone_number: e.target.value}) }  placeholder='phone number'/>
                           {errors?.phone?.type === 'required'|| errors?.phone?.type === 'pattern' && (
-                            <p className='tours__form-error'>*  Нужно заполнить номер</p>
+                            <p className='tours__form-error'>*  fill number</p>
                           )}
                         <textarea type="text"  {...register('text', {required:true })}
-                         value={tourForm.text} onChange={(e) => setTourForm( {...tourForm, text: e.target.value}) } placeholder='Комментарий'/>
+                         value={tourForm.text} onChange={(e) => setTourForm( {...tourForm, text: e.target.value}) } placeholder='comments'/>
                           {errors?.text?.type === 'pattern' && (
-                            <p className='tours__form-error'>*  Нужно заполнить</p>
+                            <p className='tours__form-error'>*  required field</p>
                           )}
                         </div>
-                        <button className='tours__modal_button' >Бронировать</button>
+                        <button className='tours__modal_button' >Booking</button>
                     </form>
                 </div>
 

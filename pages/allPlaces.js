@@ -65,7 +65,7 @@ const Blog = ({tours}) => {
                                 <div className="card__bg"> </div>
                                 <div className="ptext1">{t.name}</div>
                                 <p className="">{t.description?.slice(0,121)}</p>
-                                <p className="pricetext2">Читать больше</p>
+                                <p className="pricetext2">Read more</p>
                             </Link>
                         ))
                     }
