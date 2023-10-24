@@ -97,7 +97,7 @@ const  AllTours = (props) => {
                         <Select
                         size='large'
                         dropdownMatchSelectWidth={true}
-                            defaultValue="Категория"
+                            defaultValue="category"
                             onChange={e => setSearchCategory(e)}
                             options={categories?.map(c => (
                                 {
@@ -115,11 +115,11 @@ const  AllTours = (props) => {
                             options={[
                                 {
                                 value: true,
-                                label: 'однодневные',
+                                label: 'one-day',
                                 },
                                 {
                                     value: false,
-                                    label: 'многодневные',
+                                    label: 'multi-day',
                                 },
                             ]}
                             />
@@ -133,7 +133,7 @@ const  AllTours = (props) => {
        
 
         <section className=" sectionservice works">
-        <h2 className="section_title">{!tours?.results?.length ? 'Туры не найдены' : t('tours_title') }</h2>
+        <h2 className="section_title">{!tours?.results?.length ? 'Tours not found' : t('tours_title') }</h2>
 
         </section>
         <div className="alltours__main container">

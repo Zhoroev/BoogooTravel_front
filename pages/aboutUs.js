@@ -60,13 +60,13 @@ const AboutUs = ({about, employees}) => {
                                 
                             </div>
                             <div className='main__story-contacts'>
-                                <strong>Адрес:</strong><br/><br/>
+                                <strong>Address:</strong><br/><br/>
                                 <p>
                                     <a className="footer__info-address-link" target='blank' href={contacts?.address}> {contacts?.address}</a>
                                 </p><br/>
 
                                 
-                                <strong>Контактные телефоны:</strong><br/><br/>
+                                <strong>Contacts:</strong><br/><br/>
                                 <ul>
                                 {
                                     contacts?.phone_numbers?.map((num, id) => (

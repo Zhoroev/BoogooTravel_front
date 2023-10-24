@@ -133,12 +133,12 @@ const  TourPage = (props) =>{
             <Modal centered title={pageInfo?.name} open={isModalOpen} onOk={handleOk} onCancel={handleCancel} footer={[]}>
                 <form className='tours__form' onSubmit={(e) => e.preventDefault()}>
                     <div className='tours__modal_inputs'>
-                    <input type="text" onChange={(e) => setTourForm({...tourForm, sender:  e.target.value}) }  placeholder='Имя'/>
-                <input type="email" onChange={(e) => setTourForm({...tourForm, email: e.target.value}) } placeholder='эл. почта'/>
-                <input type="text" onChange={(e) => setTourForm( {...tourForm, phone_number: e.target.value}) }  placeholder='Номер телефона'/>
-                <textarea type="text" onChange={(e) => setTourForm( {...tourForm, text: e.target.value}) } placeholder='Комментарий'/>
+                    <input type="text" onChange={(e) => setTourForm({...tourForm, sender:  e.target.value}) }  placeholder='full name'/>
+                <input type="email" onChange={(e) => setTourForm({...tourForm, email: e.target.value}) } placeholder='email'/>
+                <input type="text" onChange={(e) => setTourForm( {...tourForm, phone_number: e.target.value}) }  placeholder='phone number'/>
+                <textarea type="text" onChange={(e) => setTourForm( {...tourForm, text: e.target.value}) } placeholder='comments'/>
                     </div>
-                    <button className='tours__modal_button' onClick={() => submitHandler()}>Подтвердить</button>
+                    <button className='tours__modal_button' onClick={() => submitHandler()}>Confirm</button>
                 </form>
             </Modal>
            
@@ -234,7 +234,7 @@ const  TourPage = (props) =>{
                         <NewImg key={idx} src={inf.image} />
                       ))
                     }
-                    <button onClick={() => setVisible(true)}  className="tour__images-btn">Смотреть фото</button>
+                    <button onClick={() => setVisible(true)}  className="tour__images-btn">View</button>
                   </div>
                   
                 </div>

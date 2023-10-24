@@ -211,12 +211,6 @@ const  Main = () => {
                         
                     </div>
                 </div>
-                <div style={{textAlign: 'center'}}>
-                    <strong>
-                    <p className="ptext4">{t('for_details1')}<br/> {t('for_details2')}</p>
-                    <a className="ptext3" href='tel:9960553577575'>+996 (0553) 577-575</a>
-                    </strong>
-                </div>
             </div>
         </section> <br/><br/>
 
