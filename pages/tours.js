@@ -133,7 +133,7 @@ const  TourPage = (props) =>{
             <Modal centered title={pageInfo?.name} open={isModalOpen} onOk={handleOk} onCancel={handleCancel} footer={[]}>
                 <form className='tours__form' onSubmit={(e) => e.preventDefault()}>
                     <div className='tours__modal_inputs'>
-                    <input type="text" onChange={(e) => setTourForm({...tourForm, sender:  e.target.value}) }  placeholder='full name'/>
+                    <input type="text" onChange={(e) => setTourForm({...tourForm, sender:  e.target.value}) }  placeholder='name'/>
                 <input type="email" onChange={(e) => setTourForm({...tourForm, email: e.target.value}) } placeholder='email'/>
                 <input type="text" onChange={(e) => setTourForm( {...tourForm, phone_number: e.target.value}) }  placeholder='phone number'/>
                 <textarea type="text" onChange={(e) => setTourForm( {...tourForm, text: e.target.value}) } placeholder='comments'/>
@@ -242,7 +242,7 @@ const  TourPage = (props) =>{
                     <form className='tours__form' onSubmit={handleSubmit(submitHandler)}>
                         <div className='tours__modal_inputs'>
                         <input type="text" {...register('sender', {required:true , pattern: /^([а-яё]+|[a-z]+)$/i})}
-                        value={tourForm.sender} onChange={(e) => setTourForm({...tourForm, sender:  e.target.value}) }  placeholder='full name'/>
+                        value={tourForm.sender} onChange={(e) => setTourForm({...tourForm, sender:  e.target.value}) }  placeholder='name'/>
                         {errors?.sender?.type === 'pattern' || errors?.sender?.type === 'required'&& (
                             <p className='tours__form-error'>*  required field</p>
                         )}
